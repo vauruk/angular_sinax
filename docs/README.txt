@@ -1,6 +1,11 @@
 ------ Atividade Prática -------
+Acesso ao projeto publicado em servidor próprio:
+http://vauruk.no-ip.info:8080/angular_sinax
 
-1 - Feita a configuração do ambiente Eclipse Neon2 - 4.6.2
+Acesso ao fonte do projeto GitHub:
+https://github.com/vauruk/angular_sinax
+
+1 - Feita a configuração do ambiente Eclipse Neon2 - 4.6.2, lembrando que a parte Java + AngularJS estão no mesmo projeto portanto ao startar o tomcat com a aplicação será levantado tanto o FrontEnd quanto o BackEnd.
 
 2- Feita a configuração através de Maven (gerenciador de pacotes Java)
 
@@ -75,7 +80,7 @@ Exemplo List JSON:
 	"artist": {"id": 7,"name": "Nirvana",	"description": "Desc 1"}
 }]
 
-vauruk.no-ip.info:8080/angular_sinax
+
 	
 
 
