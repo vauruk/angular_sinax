@@ -1,0 +1,67 @@
+<!doctype html>
+
+<html ng-app="sinax_music">
+	<head>
+	<title>Sinax Java AngularJS</title>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+	<script src="../js/music_controller.js"></script>
+	</head>
+	<body >
+		<div ng-controller="MusicController as controller">
+			<h3>{{controller.name}}</h3>
+			<div style="border: 1px solid black; padding: 10px;" ng-show="controller.music">
+				<table>
+					<tr>
+						<td><label for="idArtist">Artistas</label></td>
+						<td>
+							<select ng-model="controller.music.artist" ng-click="controller.selectedArtist" ng-options="artist as artist.name for artist in controller.artists track by artist.name">
+								
+							</select>
+							
+						</td>
+					</tr>
+					<tr>
+						<td><label for="idMusic">ID</label></td>
+						<td><input type="number" value="0" disabled="disabled" id="idMusic" ng-model="controller.music.id"></td>
+					</tr>
+					<tr>
+						<td><label for="idName">Name</label></td>
+						<td><input type="text" id="idName" ng-model="controller.music.name"></td>
+					</tr>
+					<tr>
+						<td><label for="idStyle">Style</label></td>
+						<td><input type="text" id="idStyle"	ng-model="controller.music.style"></td>
+					</tr>
+				</table>
+				<button type="button" ng-click="controller.salvar()">Salvar</button>
+				<button type="button" ng-click="controller.music = undefined">Cancelar</button>
+			</div>
+			<div style="border: 1px solid black;  padding: 10px;" ng-show="!controller.music">
+				<button type="button" ng-click="controller.novo()">Nova Musica</button>
+				<br/><br/>
+				<input type="text" ng-model="controller.nameMusic" ng-keypress="controller.selectedMusics()" placeholder="Buscar musicas" >
+				<button type="button" ng-click="controller.selectedMusics()">Buscar</button>
+				<br/><br/>
+				<table border="1" >
+					<tr>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Style</th>
+						<th>#</th>
+					</tr>
+					<tr ng-repeat="music in controller.musics">
+						<td>{{music.id}}</td>
+						<td>{{music.name}}</td>
+						<td>{{music.style}}</td>
+						<td>
+							<button type="button" ng-click="controller.alterar(music)">Alterar</button>
+							<button type="button" ng-click="controller.deletar(music)">Deletar</button>
+							
+						</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>
